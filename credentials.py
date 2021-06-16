@@ -1,5 +1,0 @@
-cons_key = "5tZMZBxFupKp2yhuRccRBq8pv"
-cons_secret = "HXuv9bbjmYKgeYYwv3hX9rSshf9appjuGoIfjkwxVRwTbq2ehl"
-bearer_token = "AAAAAAAAAAAAAAAAAAAAADttQgEAAAAA9Mrdai20T4Ap4pcUrRJZCurvttk%3DoSxqa8Ag3Dp8M0RP7Z7WOwzUgk8tC5nJOTnyQ9NQRMWvw03bZQ"
-auth_token = "3823893921-Jg3MN0XaL80rjexjyU9fWLupmH0xwV7J5L8jq95"
-auth_secret = "CdKkQ012MgEny4j81JdNnT9Rr8CKc6RExeZJAWN4LoxsY"
