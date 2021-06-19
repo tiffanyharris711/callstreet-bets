@@ -199,17 +199,15 @@ https://templatemo.com/tm-560-astro-motion
                     *This prediction is not a guarantee, and the creators of Callstreet Bets cannot be held liable for users' gains and/or losses. Bet wisely!
                   </p>
                 <div class="div2">
-                  <form action="http://0.0.0.0:5000" , method="POST">
+                                   
                     <p>
                       Input mention value
-                      <input type="number" name="Ads Price" min="1" max="50000" /><input
-                        type="submit"
-                        value="OK"
-                      />
+                      <input type="number" name="Ads Price" min="1" max="50000" id='valueFld'/>
+                      <button id='subBtn'>Ok</button>
                     </p>
                   </form>
                   <br />
-                  <p>Prediction: {{result}}%</p>
+                  <p>Prediction:<span id='result'></span>%</p>
                 </div>
                 </div>
               </div>
@@ -228,7 +226,6 @@ https://templatemo.com/tm-560-astro-motion
       </footer>
     </div>
   </div>
-  <!-- Preloader, https://ihatetomatoes.net/create-custom-preloading-screen/ -->
   <div id="loader-wrapper">            
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
@@ -238,5 +235,21 @@ https://templatemo.com/tm-560-astro-motion
   <script src="../static/bootstrap.min.js"></script>
   <script src="../static/slick.js"></script>
   <script src="../static/templatemo-script.js"></script>
+  <script>
+    var valueFld = $('#valueFld')
+    var subBtn = $('#subBtn')
+
+    subBtn.click(function(){
+      $.ajax({
+        type: "POST",
+        url: '/process',
+        data: {value:valueFld.val()},
+        success: function(result){
+          console.log('result',result)
+          $('#result').text(result)
+        }
+      })
+    })
+  </script>
 </body>
 </html>

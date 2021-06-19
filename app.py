@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap
 import joblib
 import numpy as np
+from flask import jsonify
 
 app = Flask(__name__, template_folder='templates')
 Bootstrap(app)
@@ -18,16 +19,15 @@ def ValuePredictor(to_predict_list):
     return result[0]
 
 
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/process', methods=['POST'])
 def result():
     if request.method == 'POST':
         to_predict_list = request.form.to_dict()
         to_predict_list = list(to_predict_list.values())
         to_predict_list = list(map(float, to_predict_list))
-        result = round(float(ValuePredictor(to_predict_list)), 2)
-        return render_template("index.html", result=result*100)
+        result = round(float(ValuePredictor(to_predict_list)), 3)*100
+        return jsonify(result)
 
 
 if __name__ == '__main__':
-    app.debug=False
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True)
